@@ -41,16 +41,14 @@
     behaviors {
     };
 
-    {
-        macros {
-            profile_ptr: profile_ptr {
-                compatible = "zmk,behavior-macro";
-                #binding-cells = <0>;
-                bindings
-                    = <&macro_press &mo 4 &rgb_ug RGB_BRI> // Layer 3 + Brightness UP
-                    , <&macro_pause_for_release>
-                    , <&macro_release &mo 4 &rgb_ug RGB_BRD>; // Layer 3 + Brightness DOWN
-            };
+    macros {
+        profile_ptr: profile_ptr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &mo 4 &rgb_ug RGB_BRI> // Layer 3 + Brightness UP
+                , <&macro_pause_for_release>
+                , <&macro_release &mo 4 &rgb_ug RGB_BRD>; // Layer 3 + Brightness DOWN
         };
     };
 
