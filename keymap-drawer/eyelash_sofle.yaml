@@ -62,7 +62,7 @@ layers:
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:keyboard-return$$', h: Symbols}
   - $$mdi:backspace-reverse-outline$$
-  - '&profile_ptr'
+  - {t: Gaming, h: toggle}
   - $$mdi:apple-keyboard-option$$
   - RIGHT GUI
   Gaming:
