@@ -1,6 +1,6 @@
 identifier: sofle_v2
 name: Sofle V2
-url: https://github.com/a741725193/zmk-sofle
+url: https://github.com/zael99/zmk-sofle
 type: mcu
 arch: arm
 toolchain:
