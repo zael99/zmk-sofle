@@ -1,0 +1,12 @@
+#
+# Copyright (c) 2024 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+#
+
+config BOARD_SOFLE_V2_LEFT
+    bool "sofle_v2 left"
+    depends on SOC_NRF52840_QIAA
+
+config BOARD_SOFLE_V2_RIGHT
+    bool "sofle_v2 right"
+    depends on SOC_NRF52840_QIAA

@@ -3,8 +3,8 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
   projects:
-    - name: eyelash_sofle
-      url: https://github.com/a741725193/zmk-sofle
+    - name: sofle_v2
+      url: https://github.com/zael99/zmk-sofle
       revision: main
     - name: zmk
       remote: zmkfirmware

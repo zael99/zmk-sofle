@@ -1,0 +1,15 @@
+file_format: "1"
+id: sofle_v2
+name: Sofle V2
+url: https://github.com/a741725193/zmk-sofle
+type: board
+arch: arm
+features:
+  - keys
+  - display
+outputs:
+  - usb
+  - ble
+siblings:
+  - sofle_v2_left
+  - sofle_v2_right
