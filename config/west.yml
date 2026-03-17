@@ -6,6 +6,9 @@ manifest:
     - name: sofle_v2
       url: https://github.com/zael99/zmk-sofle
       revision: main
+    - name: bt_rgb
+      url: https://github.com/zael99/zmk-bluetooth-rgb
+      revision: main
     - name: zmk
       remote: zmkfirmware
       revision: v0.3
