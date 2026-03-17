@@ -93,6 +93,16 @@
 
     combos { compatible = "zmk,combos"; };
 
+    macros {
+        rgb_walk: rgb_walk {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_HUI>;
+            label = "RGB_WALK";
+            tap-ms = <30>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
