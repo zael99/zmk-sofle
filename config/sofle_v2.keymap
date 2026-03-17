@@ -40,6 +40,11 @@
     behaviors {
         //&ext_power EP_TOG
 
+        bt_glow: bt_glow {
+            compatible = "zmk,behavior-bt-glow";
+            #binding-cells = <0>;
+        };
+
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -93,15 +98,6 @@
 
     combos { compatible = "zmk,combos"; };
 
-    macros {
-        rgb_walk: rgb_walk {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            tap-ms = <30>;
-            bindings = <&rgb_ug RGB_HUI>; // Hue Increase moves the "active" color
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -111,7 +107,7 @@
 &kp TAB         &kp Q         &kp W         &kp E          &kp R          &kp T          &mmv MOVE_DOWN   &kp Y        &kp U         &kp I          &kp O          &kp P          &kp BSLH
 &kp LEFT_SHIFT  &kp A         &kp S         &hml LSHIFT D  &hml LCTRL F   &kp G          &mmv MOVE_LEFT   &kp H        &hmr RCTRL J  &hmr RSHIFT K  &kp L          &kp SEMI       &kp RIGHT_SHIFT
 &kp LCTRL       &kp Z         &kp X         &kp C          &kp V          &kp B          &mmv MOVE_RIGHT  &kp N        &kp M         &kp COMMA      &kp DOT        &kp FSLH       &kp RCTRL
-&kp C_MUTE      &kp LEFT_GUI  &kp LEFT_ALT  &mo 4          &kp BACKSPACE  &lt 2 SPACE    &mkp LCLK        &lt 3 ENTER  &kp DEL       &rgb_walk      &kp RIGHT_ALT  &kp RIGHT_GUI
+&kp C_MUTE      &kp LEFT_GUI  &kp LEFT_ALT  &mo 4          &kp BACKSPACE  &lt 2 SPACE    &mkp LCLK        &lt 3 ENTER  &kp DEL       &bt_glow       &kp RIGHT_ALT  &kp RIGHT_GUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
