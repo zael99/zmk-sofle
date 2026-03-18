@@ -40,11 +40,6 @@
     behaviors {
         //&ext_power EP_TOG
 
-        bt_glow: bt_glow {
-            compatible = "zmk,behavior-bt-glow";
-            #binding-cells = <0>;
-        };
-
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
