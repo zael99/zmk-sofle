@@ -40,6 +40,12 @@
     behaviors {
         //&ext_power EP_TOG
 
+        bt_ind: bt_ind {
+            compatible = "zmk,behavior-bt-indicator";
+            #binding-cells = <0>;
+            display-name = "Bluetooth RGB Indicator";
+        };
+
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
