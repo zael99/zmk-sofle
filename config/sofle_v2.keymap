@@ -40,12 +40,6 @@
     behaviors {
         //&ext_power EP_TOG
 
-        bt_ind: bt_ind {
-            compatible = "zmk,behavior-bt-indicator";
-            #binding-cells = <0>;
-            display-name = "Bluetooth RGB Indicator";
-        };
-
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -113,21 +107,7 @@
         };
     };
 
-    macros {
-        mv_win_mac: mv_win {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&kp GLOBE &kp LCTRL>,
-                <&macro_tap>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
-                <&macro_release>,
-                <&kp GLOBE &kp LCTRL>;
-
-            label = "MV_WIN";
-        };
-    };
+    macros { };
 
     keymap {
         compatible = "zmk,keymap";
@@ -146,7 +126,7 @@
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
 
-        base_mac {
+        Base_Mac {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -187,20 +167,25 @@
         };
 
         Nav_Mac {
+            label = "Navigation Mac";
+            display-name = "Nav Mac";
+
             bindings = <
 &trans  &trans        &trans            &trans         &trans             &trans             &trans  &trans        &trans        &trans    &trans         &trans         &trans
-&trans  &trans        &kp LA(LEFT)      &kp UP_ARROW   &kp LA(RIGHT)      &trans             &trans  &trans        &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &trans         &trans
+&trans  &trans        &kp LA(LEFT)      &kp UP         &kp LA(RIGHT)      &trans             &trans  &trans        &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &trans         &trans
 &trans  &kp LC(LEFT)  &kp LEFT          &kp DOWN       &kp RIGHT          &kp LC(RIGHT)      &trans  &kp LC(LEFT)  &kp LEFT      &kp DOWN  &kp RIGHT      &kp LC(RIGHT)  &trans
-&trans  &trans        &mv_win_mac LEFT  &mv_win_mac F  &mv_win_mac RIGHT  &kp LA(LC(TAB))    &trans  &trans        &trans        &trans    &trans         &trans         &trans
+&trans  &trans        &kp LA(LG(LEFT))  &kp LA(LG(UP)) &kp LA(LG(RIGHT))  &kp LA(LG(TAB))    &trans  &trans        &trans        &trans    &trans         &trans         &trans
 &trans  &trans        &trans            &trans         &trans             &trans             &trans  &trans        &trans        &trans    &trans         &trans
             >;
 
-            display-name = "Nav";
             sensor-bindings = <&scroll_encoder>;
-            label = "Navigation Mac";
+            
         };
 
         Symbols {
+            label = "Symbols";
+            display-name = "Symbols";
+
             bindings = <
 &trans  &trans         &trans            &trans                &trans                 &trans    &trans  &trans  &trans          &trans     &trans             &trans    &trans
 &trans  &kp LESS_THAN  &kp GREATER_THAN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans    &trans  &trans  &kp UNDERSCORE  &kp MINUS  &kp EQUAL          &kp PLUS  &trans
@@ -209,12 +194,13 @@
 &trans  &trans         &trans            &trans                &trans                 &trans    &trans  &trans  &trans          &trans     &trans             &trans
             >;
 
-            display-name = "Symbols";
             sensor-bindings = <&scroll_encoder>;
-            label = "Symbols";
         };
 
         Misc {
+            label = "Miscellaneous";
+            display-name = "Misc";
+
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &trans  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans   &trans
@@ -223,11 +209,12 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
             >;
 
-            label = "Misc";
             sensor-bindings = <&scroll_encoder>;
         };
 
         Settings {
+            label = "Settings";
+            display-name = "Settings";
             bindings = <
 &bt BT_CLR  &bt BT_SEL 0                    &bt BT_SEL 1                      &bt BT_SEL 2                       &bt BT_SEL 3                    &bt BT_SEL 4    &rgb_ug RGB_BRI  &to 0   &to 1   &to 2   &trans  &trans  &trans
 &trans      &trans                          &trans                            &trans                             &trans                          &trans          &rgb_ug RGB_BRD  &trans  &trans  &trans  &trans  &trans  &trans
@@ -236,9 +223,7 @@
 &trans      &trans                          &trans                            &trans                             &trans                          &trans          &rgb_ug RGB_TOG  &trans  &trans  &trans  &trans  &trans
             >;
 
-            display-name = "Settings";
             sensor-bindings = <&rgb_hue>;
-            label = "Settings";
         };
     };
 
