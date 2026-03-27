@@ -9,7 +9,9 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <behaviors/bt_indicator.dtsi>
+
+// Custom Modules
+#include <behaviors/rgb_ext.dtsi>
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
