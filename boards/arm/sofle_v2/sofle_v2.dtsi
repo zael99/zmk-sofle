@@ -23,7 +23,7 @@
         zmk,kscan = &kscan0;
         zmk,battery = &vbatt;
         zmk,underglow = &led_strip;
-        zmk,rgb = &led_strip;
+        zmk,rgb-ext = &led_strip;
         zmk,physical-layout = &sofle_v2_layout;
         zmk,backlight = &led_strip;
     };
