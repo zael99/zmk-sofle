@@ -32,7 +32,6 @@
         compatible = "zmk,rgb-ext";
         status = "okay";
         rgb-dev = &led_strip;
-        chain-length = <36>;
     };
 
     left_encoder: encoder_left {
