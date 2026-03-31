@@ -215,6 +215,12 @@
     pinctrl-names = "default", "sleep";
 };
 
+&rgb_ext {
+    compatible = "zmk,rgb_ext";
+    status = "okay";
+    rgb-dev = < &led_strip >
+};
+
 zephyr_udc0: &usbd {
     compatible = "nordic,nrf-usbd";
     status = "okay";
@@ -226,10 +232,4 @@ nice_view_spi: &spi0 {
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
-};
-
-rgb_ext: &rgb_ext {
-    compatible = "zmk,rgb_ext";
-    status = "okay";
-    rgb-dev = < &led_strip >
 };
