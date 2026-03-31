@@ -208,7 +208,7 @@
     };
 };
 
-rgb_ext: &rgb_ext {
+&rgb_ext {
     compatible = "zmk,rgb-ext";
     status = "okay";
     rgb-dev = < &led_strip >;
