@@ -25,7 +25,7 @@
         zmk,underglow = &led_strip;
         zmk,physical-layout = &sofle_v2_layout;
         zmk,backlight = &led_strip;
-        zmk,rgb-ext = &rgb_ext;
+        zmk,rgb-ext = &led_strip;
     };
 
     rgb_ext: rgb_ext {
