@@ -97,6 +97,11 @@
     status = "okay";
 };
 
+rgb_ext: rgb_ext {
+    compatible = "zmk,rgb_ext";
+    status = "okay";
+};
+
 &usbd {
     status = "okay";
     cdc_acm_uart: cdc_acm_uart {
