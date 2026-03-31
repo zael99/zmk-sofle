@@ -1,10 +1,13 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/zael99
+      url-base: https://github.com/zmkfirmware
   projects:
-    - name: zmk-sofle
-      remote: zmkfirmware
+    - name: sofle_v2
+      url: https://github.com/zael99/zmk-sofle
+      revision: main
+    - name: rgb_ext
+      url: https://github.com/zael99/zmk-rgb-ext
       revision: main
     - name: zmk
       remote: zmkfirmware
