@@ -28,6 +28,12 @@
         zmk,rgb-ext = &led_strip;
     };
 
+    rgb_ext: rgb_ext {
+        compatible = "zmk,rgb_ext";
+        status = "okay";
+        rgb-dev = < &led_strip >
+    };
+
     left_encoder: encoder_left {
         compatible = "alps,ec11";
         a-gpios = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -213,12 +219,6 @@
     pinctrl-0 = <&pwm0_default>;
     pinctrl-1 = <&pwm0_sleep>;
     pinctrl-names = "default", "sleep";
-};
-
-&rgb_ext {
-    compatible = "zmk,rgb_ext";
-    status = "okay";
-    rgb-dev = < &led_strip >
 };
 
 zephyr_udc0: &usbd {
