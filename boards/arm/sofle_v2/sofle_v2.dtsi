@@ -97,12 +97,6 @@
     status = "okay";
 };
 
-rgb_ext: rgb_ext {
-    compatible = "zmk,rgb_ext";
-    status = "okay";
-    rgb-dev = < &led_strip >
-};
-
 &usbd {
     status = "okay";
     cdc_acm_uart: cdc_acm_uart {
@@ -232,4 +226,10 @@ nice_view_spi: &spi0 {
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+};
+
+rgb_ext: &rgb_ext {
+    compatible = "zmk,rgb_ext";
+    status = "okay";
+    rgb-dev = < &led_strip >
 };
