@@ -28,12 +28,6 @@
         zmk,rgb-ext = &rgb_ext;
     };
 
-    rgb_ext: rgb_ext {
-        compatible = "zmk,rgb_ext";
-        status = "okay";
-        rgb-dev = < &led_strip >;
-    };
-
     left_encoder: encoder_left {
         compatible = "alps,ec11";
         a-gpios = <&gpio1 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -212,6 +206,12 @@
 
         color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
     };
+};
+
+rgb_ext: &rgb_ext {
+    compatible = "zmk,rgb_ext";
+    status = "okay";
+    rgb-dev = < &led_strip >;
 };
 
 &pwm0 {
