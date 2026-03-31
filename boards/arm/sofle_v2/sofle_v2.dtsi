@@ -31,7 +31,7 @@
     rgb_ext: rgb_ext {
         compatible = "zmk,rgb_ext";
         status = "okay";
-        rgb-dev = < &led_strip >
+        rgb-dev = < &led_strip >;
     };
 
     left_encoder: encoder_left {
