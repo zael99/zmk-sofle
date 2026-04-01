@@ -11,15 +11,12 @@ manifest:
       import: app/west.yml
     - name: zmk-sofle
       remote: zael99
-      url: /zmk-sofle.git
       revision: main
     - name: zmk-persistent-default-layer
       remote: zael99
-      url: /zmk-persistent-default-layer.git
       revision: main
     #- name: zmk-rgb-ext
     #  remote: zael99
-    #  url: /zmk-rgb-ext.git
     #  revision: main
   self:
     path: boards
