@@ -2,16 +2,24 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: zael99
+      url-base: https://github.com/zael99
   projects:
-    - name: sofle_v2
-      url: https://github.com/zael99/zmk-sofle
-      revision: main
-    - name: rgb_ext
-      url: https://github.com/zael99/zmk-rgb-ext
-      revision: main
     - name: zmk
       remote: zmkfirmware
       revision: v0.3
       import: app/west.yml
+    - name: zmk-sofle
+      remote: zael99
+      url: /zmk-sofle.git
+      revision: main
+    - name: zmk-persistent-default-layer
+      remote: zael99
+      url: /zmk-persistent-default-layer.git
+      revision: main
+    #- name: zmk-rgb-ext
+    #  remote: zael99
+    #  url: /zmk-rgb-ext.git
+    #  revision: main
   self:
     path: boards
