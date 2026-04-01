@@ -15,6 +15,9 @@ manifest:
     - name: zmk-persistent-default-layer
       remote: zael99
       revision: main
+    - name: zmk-bluetooth-rgb
+      remote: zael99
+      revision: main
     #- name: zmk-rgb-ext
     #  remote: zael99
     #  revision: main
