@@ -6,5 +6,6 @@ include:
   - board: sofle_v2_left
     shield: nice_view
     snippet: studio-rpc-usb-uart
+    snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
     artifact-name: sofle_v2_left
