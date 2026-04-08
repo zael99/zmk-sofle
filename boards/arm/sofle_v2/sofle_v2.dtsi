@@ -24,14 +24,7 @@
         zmk,battery = &vbatt;
         zmk,underglow = &led_strip;
         zmk,physical-layout = &sofle_v2_layout;
-        zmk,backlight = &led_strip;
-        zmk,rgb-ext = &rgb_ext;
-    };
-
-    rgb_ext: rgb_ext {
-        compatible = "zmk,rgb-ext";
-        status = "okay";
-        rgb-dev = < &led_strip >;
+        zmk,backlight = &backlight;
     };
 
     left_encoder: encoder_left {
@@ -84,6 +77,13 @@
     vbatt: vbatt {
         compatible = "zmk,battery-nrf-vddh";
        init-delay-ms = <50>;
+    };
+
+    backlight: pwmleds {
+        compatible = "pwm-leds";
+        pwm_led_0 {
+            pwms = <&pwm0 0 PWM_MSEC(1) PWM_POLARITY_NORMAL>;
+        };
     };
 };
 
@@ -206,7 +206,7 @@
         spi-max-frequency = <4000000>;
 
         /* WS2812 */
-        chain-length = <36>;
+        chain-length = <7>;
         spi-one-frame = <0x70>;
         spi-zero-frame = <0x40>;
 
