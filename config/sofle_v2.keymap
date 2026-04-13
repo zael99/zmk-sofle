@@ -46,12 +46,12 @@
             display-name = "Bluetooth RGB Indicator";
         };
 
-        pdf: pdf {
-            compatible = "zmk,behaviour-persistent-default-layer";
-            #binding-cells = <1>;
-            default-layer = <0>;
-            display-name = "Persistent Default Layer";
-        };
+        //pdf: pdf {
+        //    compatible = "zmk,behaviour-persistent-default-layer";
+        //    #binding-cells = <1>;
+        //    default-layer = <0>;
+        //    display-name = "Persistent Default Layer";
+        //};
 
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
@@ -157,7 +157,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &kp D   &kp F   &trans       &trans  &trans     &kp J   &kp K   &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &kp SPACE    &trans  &kp ENTER  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &mo 7   &trans  &kp SPACE    &trans  &kp ENTER  &trans  &mo 7   &trans  &trans
             >;
 
             display-name = "Gaming";
@@ -229,7 +229,7 @@
             label = "Settings";
             display-name = "Settings";
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0                    &bt BT_SEL 1                      &bt BT_SEL 2                       &bt BT_SEL 3                     &bt BT_SEL 4    &rgb_ug RGB_BRI  &pdf 0  &pdf 1  &to 2   &trans  &trans  &trans
+&bt BT_CLR  &bt BT_SEL 0                    &bt BT_SEL 1                      &bt BT_SEL 2                       &bt BT_SEL 3                     &bt BT_SEL 4    &rgb_ug RGB_BRI  &tog 0  &tog 1  &tog 2  &trans  &trans  &trans
 &trans      &trans                          &trans                            &trans                             &trans                           &trans          &rgb_ug RGB_BRD  &trans  &trans  &trans  &trans  &trans  &trans
 &trans      &out OUT_USB                    &out OUT_BLE                      &bt BT_CLR                         &trans                           &trans          &rgb_ug RGB_EFR  &trans  &trans  &trans  &trans  &trans  &trans
 &trans      &rgb_ug RGB_COLOR_HSB(0,0,100)  &rgb_ug RGB_COLOR_HSB(264,82,46)  &rgb_ug RGB_COLOR_HSB(235,100,50)  &trans                           &bt_ind         &rgb_ug RGB_EFF  &trans  &trans  &trans  &trans  &trans  &trans
