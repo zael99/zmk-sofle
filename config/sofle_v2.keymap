@@ -50,7 +50,7 @@
             compatible = "zmk,behaviour-persistent-default-layer";
             #binding-cells = <1>;
             default-layer = <0>;
-            display-name = "Persistent Default Layer";
+            label = "Persistent Default Layer";
         };
 
         hml: home_row_mod_left {
