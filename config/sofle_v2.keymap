@@ -48,8 +48,6 @@
         pdf: pdf {
             compatible = "zmk,behaviour-persistent-default-layer";
             #binding-cells = <1>;
-            default-layer = <0>;
-            label = "Persistent Default Layer";
         };
 
         hml: home_row_mod_left {
