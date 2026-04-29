@@ -13,10 +13,10 @@ manifest:
       remote: zael99
       revision: main
       path: zmk-sofle
-    - name: zmk-persistent-default-layer
-      remote: zael99
-      revision: main
-      path: zmk-persistent-default-layer
+    #- name: zmk-persistent-default-layer
+    #  remote: zael99
+    #  revision: main
+    #  path: zmk-persistent-default-layer
     #- name: zmk-bluetooth-rgb
     #  remote: zael99
     #  revision: main
