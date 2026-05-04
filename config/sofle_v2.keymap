@@ -45,15 +45,10 @@
         //    display-name = "Bluetooth RGB Indicator";
         //};
 
-        //pdf: pdf {
-        //    compatible = "zmk,behaviour-persistent-default-layer";
-        //    #binding-cells = <1>;
-        //};
-
-        //layer_info: layer_info {
-        //    compatible = "zmk,behaviour-layer-info";
-        //    #binding-cells = <0>;
-        //};
+        pdf: pdf {
+            compatible = "zmk,behaviour-persistent-default-layer";
+            #binding-cells = <1>;
+        };
 
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
@@ -129,11 +124,11 @@
             label = "Base";
             display-name = "Base";
             bindings = <
-&kp ESC         &kp N1        &kp N2        &kp N3         &kp N4         &kp N5         &mmv MOVE_UP     &kp N6       &kp N7        &kp N8         &kp N9         &kp N0         &kp GRAVE
-&kp TAB         &kp Q         &kp W         &kp E          &kp R          &kp T          &mmv MOVE_DOWN   &kp Y        &kp U         &kp I          &kp O          &kp P          &kp BSLH
-&kp LEFT_SHIFT  &kp A         &kp S         &hml LSHIFT D  &hml LCTRL F   &kp G          &mmv MOVE_LEFT   &kp H        &hmr RCTRL J  &hmr RSHIFT K  &kp L          &kp SEMI       &kp RIGHT_SHIFT
-&kp LCTRL       &kp Z         &kp X         &kp C          &kp V          &kp B          &mmv MOVE_RIGHT  &kp N        &kp M         &kp COMMA      &kp DOT        &kp FSLH       &kp RCTRL
-&kp C_MUTE      &kp LEFT_GUI  &kp LEFT_ALT  &mo 7          &kp BACKSPACE  &lt 3 SPACE    &mkp LCLK        &lt 5 ENTER  &kp DEL       &mo 7          &kp RIGHT_ALT  &kp RIGHT_GUI
+&kp ESC         &kp N1        &kp N2        &kp N3         &kp N4         &kp N5                &mmv MOVE_UP            &kp N6       &kp N7        &kp N8         &kp N9         &kp N0         &kp GRAVE
+&kp TAB         &kp Q         &kp W         &kp E          &kp R          &kp T                 &mmv MOVE_DOWN          &kp Y        &kp U         &kp I          &kp O          &kp P          &kp BSLH
+&kp LEFT_SHIFT  &kp A         &kp S         &hml LSHIFT D  &hml LCTRL F   &kp G                 &mmv MOVE_LEFT          &kp H        &hmr RCTRL J  &hmr RSHIFT K  &kp L          &kp SEMI       &kp RIGHT_SHIFT
+&kp LCTRL       &kp Z         &kp X         &kp C          &kp V          &kp B                 &mmv MOVE_RIGHT         &kp N        &kp M         &kp COMMA      &kp DOT        &kp FSLH       &kp RCTRL
+&kp C_MUTE      &kp LEFT_GUI  &kp LEFT_ALT  &mo 7          &kp BACKSPACE  &lt 3 SPACE           &mkp LCLK               &lt 5 ENTER  &kp DEL       &mo 7          &kp RIGHT_ALT  &kp RIGHT_GUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -141,11 +136,11 @@
 
         Base_Mac {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &lt 4 SPACE    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &lt 4 SPACE     &trans       &trans  &trans  &trans  &trans  &trans
             >;
 
             label = "Base Mac";
@@ -153,11 +148,11 @@
 
         Gaming {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &kp D   &kp F   &trans       &trans  &trans     &kp J   &kp K   &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &mo 7   &trans  &kp SPACE    &trans  &kp ENTER  &trans  &mo 7   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans         &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans         &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &kp D   &kp F   &trans          &trans         &trans     &kp J   &kp K   &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans         &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &kp SPACE       &trans         &kp ENTER  &trans  &trans  &trans  &trans
             >;
 
             display-name = "Gaming";
@@ -169,11 +164,11 @@
             label = "Navigation";
             display-name = "Nav";
             bindings = <
-&trans  &trans    &trans        &trans            &trans         &trans             &trans  &trans        &trans        &trans    &trans         &trans         &trans
-&trans  &trans    &kp LC(LEFT)  &kp UP_ARROW      &kp LC(RIGHT)  &trans             &trans  &trans        &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &trans         &trans
-&trans  &kp HOME  &kp LEFT      &kp DOWN          &kp RIGHT      &kp END            &trans  &kp LC(LEFT)  &kp LEFT      &kp DOWN  &kp RIGHT      &kp LC(RIGHT)  &trans
-&trans  &trans    &kp LG(LEFT)  &kp LG(UP_ARROW)  &kp LG(RIGHT)  &kp LA(LC(TAB))    &trans  &trans        &trans        &trans    &trans         &trans         &trans
-&trans  &trans    &trans        &trans            &trans         &trans             &trans  &trans        &trans        &trans    &trans         &trans
+&trans  &trans    &trans        &trans            &trans         &trans                 &trans          &trans        &trans        &trans    &trans         &trans         &trans
+&trans  &trans    &kp LC(LEFT)  &kp UP_ARROW      &kp LC(RIGHT)  &trans                 &trans          &trans        &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &trans         &trans
+&trans  &kp HOME  &kp LEFT      &kp DOWN          &kp RIGHT      &kp END                &trans          &kp LC(LEFT)  &kp LEFT      &kp DOWN  &kp RIGHT      &kp LC(RIGHT)  &trans
+&trans  &trans    &kp LG(LEFT)  &kp LG(UP_ARROW)  &kp LG(RIGHT)  &kp LA(LC(TAB))        &trans          &trans        &trans        &trans    &trans         &trans         &trans
+&trans  &trans    &trans        &trans            &trans         &trans                 &trans          &trans        &trans        &trans    &trans         &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -183,11 +178,11 @@
             label = "Navigation Mac";
             display-name = "Nav Mac";
             bindings = <
-&trans  &trans        &trans            &trans          &trans             &trans             &trans  &trans        &trans        &trans    &trans         &trans         &trans
-&trans  &trans        &kp LA(LEFT)      &kp UP          &kp LA(RIGHT)      &trans             &trans  &trans        &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &trans         &trans
-&trans  &kp LC(LEFT)  &kp LEFT          &kp DOWN        &kp RIGHT          &kp LC(RIGHT)      &trans  &kp LC(LEFT)  &kp LEFT      &kp DOWN  &kp RIGHT      &kp LC(RIGHT)  &trans
-&trans  &trans        &kp LA(LG(LEFT))  &kp LA(LG(UP))  &kp LA(LG(RIGHT))  &kp LA(LG(TAB))    &trans  &trans        &trans        &trans    &trans         &trans         &trans
-&trans  &trans        &trans            &trans          &trans             &trans             &trans  &trans        &trans        &trans    &trans         &trans
+&trans  &trans        &trans            &trans          &trans             &trans                   &trans          &trans        &trans        &trans    &trans         &trans         &trans
+&trans  &trans        &kp LA(LEFT)      &kp UP          &kp LA(RIGHT)      &trans                   &trans          &trans        &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &trans         &trans
+&trans  &kp LC(LEFT)  &kp LEFT          &kp DOWN        &kp RIGHT          &kp LC(RIGHT)            &trans          &kp LC(LEFT)  &kp LEFT      &kp DOWN  &kp RIGHT      &kp LC(RIGHT)  &trans
+&trans  &trans        &kp LA(LG(LEFT))  &kp LA(LG(UP))  &kp LA(LG(RIGHT))  &kp LA(LG(TAB))          &trans          &trans        &trans        &trans    &trans         &trans         &trans
+&trans  &trans        &trans            &trans          &trans             &trans                   &trans          &trans        &trans        &trans    &trans         &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -197,11 +192,11 @@
             label = "Symbols";
             display-name = "Symbols";
             bindings = <
-&trans  &trans         &trans            &trans                &trans                 &trans    &trans  &trans  &trans          &trans     &trans             &trans    &trans
-&trans  &kp LESS_THAN  &kp GREATER_THAN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans    &trans  &trans  &kp UNDERSCORE  &kp MINUS  &kp EQUAL          &kp PLUS  &trans
-&trans  &kp LBKT       &kp RBKT          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans    &trans  &trans  &kp BSLH        &kp FSLH   &kp DOUBLE_QUOTES  &kp APOS  &trans
-&trans  &trans         &trans            &trans                &trans                 &trans    &trans  &trans  &trans          &trans     &trans             &trans    &trans
-&trans  &trans         &trans            &trans                &trans                 &trans    &trans  &trans  &trans          &trans     &trans             &trans
+&trans  &trans         &trans            &trans                &trans                 &trans        &trans          &trans  &trans          &trans     &trans             &trans    &trans
+&trans  &kp LESS_THAN  &kp GREATER_THAN  &kp LEFT_BRACE        &kp RIGHT_BRACE        &trans        &trans          &trans  &kp UNDERSCORE  &kp MINUS  &kp EQUAL          &kp PLUS  &trans
+&trans  &kp LBKT       &kp RBKT          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans        &trans          &trans  &kp BSLH        &kp FSLH   &kp DOUBLE_QUOTES  &kp APOS  &trans
+&trans  &trans         &trans            &trans                &trans                 &trans        &trans          &trans  &trans          &trans     &trans             &trans    &trans
+&trans  &trans         &trans            &trans                &trans                 &trans        &trans          &trans  &trans          &trans     &trans             &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -211,11 +206,11 @@
             label = "Miscellaneous";
             display-name = "Misc";
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &trans  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6          &trans          &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans  &trans  &trans  &trans   &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -225,11 +220,11 @@
             label = "Settings";
             display-name = "Settings";
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0                    &bt BT_SEL 1                      &bt BT_SEL 2                       &bt BT_SEL 3  &bt BT_SEL 4    &rgb_ug RGB_BRI  &to 0   &to 1   &to 2   &trans  &trans  &trans
-&trans      &trans                          &trans                            &trans                             &trans        &trans          &rgb_ug RGB_BRD  &trans  &trans  &trans  &trans  &trans  &trans
-&trans      &out OUT_USB                    &out OUT_BLE                      &bt BT_CLR                         &trans        &trans          &rgb_ug RGB_EFR  &trans  &trans  &trans  &trans  &trans  &trans
-&trans      &rgb_ug RGB_COLOR_HSB(0,0,100)  &rgb_ug RGB_COLOR_HSB(264,82,46)  &rgb_ug RGB_COLOR_HSB(235,100,50)  &trans        &trans          &rgb_ug RGB_EFF  &trans  &trans  &trans  &trans  &trans  &trans
-&trans      &trans                          &trans                            &trans                             &trans        &trans          &rgb_ug RGB_TOG  &trans  &trans  &trans  &trans  &trans
+&bt BT_CLR  &bt BT_SEL 0                    &bt BT_SEL 1                      &bt BT_SEL 2                       &bt BT_SEL 3  &bt BT_SEL 4         &rgb_ug RGB_BRI         &to 0   &to 1   &to 2   &trans  &trans  &trans
+&trans      &trans                          &trans                            &trans                             &trans        &trans               &rgb_ug RGB_BRD         &pdf 0  &pdf 1  &trans  &trans  &trans  &trans
+&trans      &out OUT_USB                    &out OUT_BLE                      &bt BT_CLR                         &trans        &trans               &rgb_ug RGB_EFR         &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &rgb_ug RGB_COLOR_HSB(0,0,100)  &rgb_ug RGB_COLOR_HSB(264,82,46)  &rgb_ug RGB_COLOR_HSB(235,100,50)  &trans        &trans               &rgb_ug RGB_EFF         &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &trans                          &trans                            &trans                             &trans        &trans               &rgb_ug RGB_TOG         &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&rgb_hue>;
