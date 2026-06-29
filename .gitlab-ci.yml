@@ -1,0 +1,89 @@
+stages:
+  - build
+
+variables:
+  BUILD_MATRIX_PATH: build.yaml
+  CONFIG_PATH: config
+  FALLBACK_BINARY: bin
+  ARCHIVE_NAME: firmware
+
+build:
+  stage: build
+  image: zmkfirmware/zmk-build-arm:stable
+  shell: bash
+  script:
+    - set -euo pipefail
+    - apt-get update && apt-get install -y yq >/dev/null
+    - |
+      export ARTIFACT_DIR="$CI_PROJECT_DIR/artifacts"
+      mkdir -p "$ARTIFACT_DIR"
+
+      if [ -f "$CI_PROJECT_DIR/zephyr/module.yml" ]; then
+        export BASE_DIR="$(mktemp -d)"
+        mkdir -p "$BASE_DIR/$CONFIG_PATH"
+        cp -R "$CI_PROJECT_DIR/$CONFIG_PATH"/. "$BASE_DIR/$CONFIG_PATH"/
+      else
+        export BASE_DIR="$CI_PROJECT_DIR"
+      fi
+
+      mapfile -t entries < <(yq -r '.include[] | @base64' "$BUILD_MATRIX_PATH")
+      if [ ${#entries[@]} -eq 0 ]; then
+        echo "No build entries found in $BUILD_MATRIX_PATH"
+        exit 0
+      fi
+
+      for entry in "${entries[@]}"; do
+        board="$(echo "$entry" | base64 -d | yq -r '.board')"
+        shield="$(echo "$entry" | base64 -d | yq -r '.shield // empty')"
+        artifact_name="$(echo "$entry" | base64 -d | yq -r '.artifact-name // empty')"
+        snippet="$(echo "$entry" | base64 -d | yq -r '.snippet // empty')"
+        cmake_args="$(echo "$entry" | base64 -d | yq -r '.cmake-args // empty')"
+
+        if [ -z "$artifact_name" ]; then
+          artifact_name="${shield:+$shield-}${board}-zmk"
+        fi
+
+        display_name="${shield:+$shield - }${board}"
+
+        extra_west_args=()
+        if [ -n "$snippet" ]; then
+          extra_west_args+=("-S" "$snippet")
+        fi
+
+        extra_cmake_args=()
+        if [ -n "$shield" ]; then
+          extra_cmake_args+=("-DSHIELD=$shield")
+        fi
+        if [ -f "$CI_PROJECT_DIR/zephyr/module.yml" ]; then
+          extra_cmake_args+=("-DZMK_EXTRA_MODULES=$CI_PROJECT_DIR")
+        fi
+        if [ -n "$cmake_args" ]; then
+          read -r -a cmake_arg_array <<< "$cmake_args"
+          extra_cmake_args+=("${cmake_arg_array[@]}")
+        fi
+
+        build_dir="$(mktemp -d)"
+        echo "Building $display_name"
+
+        cd "$BASE_DIR"
+        west init -l "$BASE_DIR/$CONFIG_PATH"
+        west update --fetch-opt=--filter=tree:0
+        west zephyr-export
+        west build -s zmk/app -d "$build_dir" -b "$board" "${extra_west_args[@]}" -- -DZMK_CONFIG="$BASE_DIR/$CONFIG_PATH" "${extra_cmake_args[@]}"
+
+        if [ -f "$build_dir/zephyr/zmk.uf2" ]; then
+          mkdir -p "$ARTIFACT_DIR"
+          cp "$build_dir/zephyr/zmk.uf2" "$ARTIFACT_DIR/${artifact_name}.uf2"
+        elif [ -f "$build_dir/zephyr/zmk.$FALLBACK_BINARY" ]; then
+          mkdir -p "$ARTIFACT_DIR"
+          cp "$build_dir/zephyr/zmk.$FALLBACK_BINARY" "$ARTIFACT_DIR/${artifact_name}.$FALLBACK_BINARY"
+        fi
+      done
+
+      echo "Artifacts generated:"
+      find "$ARTIFACT_DIR" -maxdepth 1 -type f | sort
+  artifacts:
+    paths:
+      - artifacts/
+    when: always
+    expire_in: 1 week
